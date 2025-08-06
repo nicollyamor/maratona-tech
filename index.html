@@ -265,85 +265,169 @@
     </footer>
 
     <script>
-        // Comandos disponíveis
-        const commands = {
-            'cultivo': {
-                card: 'cultivo-card',
-                message: 'Abrindo informações sobre cultivo de morangos...'
-            },
-            'receitas': {
-                card: 'receitas-card',
-                message: 'Carregando receitas deliciosas com morango...'
-            },
-            'beneficios': {
-                card: 'beneficios-card',
-                message: 'Mostrando benefícios do morango para saúde...'
-            },
-            'variedades': {
-                card: 'variedades-card',
-                message: 'Exibindo diferentes variedades de morango...'
-            },
-            'limpar': {
-                action: function() {
-                    document.getElementById('terminal-output').innerHTML = '';
-                    addTerminalOutput('Terminal limpo. Digite um comando para continuar.');
-                }
-            },
-            'ajuda': {
-                action: function() {
-                    addTerminalOutput('<div>Comandos disponíveis:</div>');
-                    addTerminalOutput('<div>- cultivo: Técnicas de cultivo</div>');
-                    addTerminalOutput('<div>- receitas: Receitas com morango</div>');
-                    addTerminalOutput('<div>- beneficios: Benefícios para saúde</div>');
-                    addTerminalOutput('<div>- variedades: Tipos de morango</div>');
-                    addTerminalOutput('<div>- limpar: Limpa o terminal</div>');
+       <script>
+    // Comandos disponíveis sobre milho
+    const commands = {
+        'cultivo': {
+            card: 'cultivo-card',
+            message: 'Abrindo informações sobre cultivo de milho...'
+        },
+        'receitas': {
+            card: 'receitas-card',
+            message: 'Carregando receitas deliciosas com milho...'
+        },
+        'beneficios': {
+            card: 'beneficios-card',
+            message: 'Mostrando benefícios do milho para saúde...'
+        },
+        'variedades': {
+            card: 'variedades-card',
+            message: 'Exibindo diferentes variedades de milho...'
+        },
+        'historia': {
+            action: function() {
+                addTerminalOutput('<div>=== HISTÓRIA DO MILHO ===</div><br>');
+                addTerminalOutput('<div>O milho (Zea mays) foi domesticado há cerca de 10.000 anos no México</div>');
+                addTerminalOutput('<div>Era base da alimentação de maias, astecas e incas</div>');
+                addTerminalOutput('<div>Chegou à Europa no século XVI após as grandes navegações</div>');
+            }
+        },
+        'nutrientes': {
+            action: function() {
+                addTerminalOutput('<div>=== INFORMAÇÃO NUTRICIONAL ===</div><br>');
+                addTerminalOutput('<div>Por 100g de milho cozido:</div>');
+                addTerminalOutput('<div>- Calorias: 96kcal</div>');
+                addTerminalOutput('<div>- Carboidratos: 21g</div>');
+                addTerminalOutput('<div>- Proteínas: 3,4g</div>');
+                addTerminalOutput('<div>- Fibras: 2,4g</div>');
+                addTerminalOutput('<div>- Vitamina B1: 13% VD</div>');
+            }
+        },
+        'curiosidades': {
+            action: function() {
+                addTerminalOutput('<div>=== CURIOSIDADES ===</div><br>');
+                addTerminalOutput('<div>1. O milho é usado em mais de 3.000 produtos industrializados</div>');
+                addTerminalOutput('<div>2. Brasil é o 3° maior produtor mundial</div>');
+                addTerminalOutput('<div>3. Cada espiga tem número par de fileiras de grãos</div>');
+                addTerminalOutput('<div>4. Existem milhos de várias cores: amarelo, branco, roxo e até azul</div>');
+                addTerminalOutput('<div>5. 1 hectare de milho produz oxigênio para 50 pessoas por ano</div>');
+            }
+        },
+        'limpar': {
+            action: function() {
+                document.getElementById('terminal-output').innerHTML = '';
+                addTerminalOutput('Terminal limpo. Digite um comando para continuar.');
+            }
+        },
+        'ajuda': {
+            action: function() {
+                addTerminalOutput('<div>=== COMANDOS DISPONÍVEIS ===</div><br>');
+                addTerminalOutput('<div>- <strong>cultivo</strong>: Técnicas de cultivo</div>');
+                addTerminalOutput('<div>- <strong>receitas</strong>: Receitas com milho</div>');
+                addTerminalOutput('<div>- <strong>beneficios</strong>: Benefícios para saúde</div>');
+                addTerminalOutput('<div>- <strong>variedades</strong>: Tipos de milho</div>');
+                addTerminalOutput('<div>- <strong>historia</strong>: Origem do milho</div>');
+                addTerminalOutput('<div>- <strong>nutrientes</strong>: Informação nutricional</div>');
+                addTerminalOutput('<div>- <strong>curiosidades</strong>: Fatos interessantes</div>');
+                addTerminalOutput('<div>- <strong>limpar</strong>: Limpa o terminal</div>');
+                addTerminalOutput('<div>- <strong>ajuda</strong>: Mostra esta mensagem</div><br>');
+            }
+        },
+        'festajunina': {
+            action: function() {
+                addTerminalOutput('<div>🌽🎵 FESTA JUNINA DO MILHO 🎵🌽</div>');
+                addTerminalOutput('<div style="color: #FFD700">ARRAIÁ DO MILHO VIRTUAL!</div>');
+                addTerminalOutput('<div>Digite "surpresa" para uma experiência especial!</div>');
+            }
+        },
+        'surpresa': {
+            action: function() {
+                document.body.style.backgroundColor = '#FFF3E0';
+                document.body.style.transition = 'background 1s';
+                addTerminalOutput('<div style="font-weight:bold;color:#FF8F00">🌽 PAMONHA, CANJICA E CURAÚ! 🌽</div>');
+                addTerminalOutput('<div>Parabéns! Você ativou a festa do milho!</div>');
+                
+                // Cria espigas de milho caindo
+                for(let i = 0; i < 10; i++) {
+                    setTimeout(() => {
+                        const corn = document.createElement('div');
+                        corn.innerHTML = '🌽';
+                        corn.style.position = 'fixed';
+                        corn.style.left = Math.random() * window.innerWidth + 'px';
+                        corn.style.top = '-50px';
+                        corn.style.fontSize = (20 + Math.random() * 30) + 'px';
+                        corn.style.animation = `fall ${3 + Math.random() * 4}s linear forwards`;
+                        document.body.appendChild(corn);
+                        
+                        // Adiciona animação de queda
+                        const keyframes = `
+                            @keyframes fall {
+                                to {
+                                    transform: translateY(${window.innerHeight + 50}px) rotate(360deg);
+                                }
+                            }
+                        `;
+                        const style = document.createElement('style');
+                        style.innerHTML = keyframes;
+                        document.head.appendChild(style);
+                        
+                        // Remove após animação
+                        setTimeout(() => {
+                            corn.remove();
+                        }, 7000);
+                    }, i * 300);
                 }
             }
-        };
-
-        // Configurar o input de comando
-        const commandInput = document.getElementById('command-input');
-        commandInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                const command = this.value.toLowerCase().trim();
-                this.value = '';
-                
-                addTerminalOutput(`<div><span style="color: #69F0AE;">></span> ${command}</div>`);
-                
-                if (commands[command]) {
-                    if (commands[command].card) {
-                        // Esconder todos os cards primeiro
-                        document.querySelectorAll('.site-card').forEach(card => {
-                            card.classList.remove('active');
-                        });
-                        
-                        // Mostrar mensagem no terminal
-                        addTerminalOutput(commands[command].message);
-                        
-                        // Mostrar o card correspondente
-                        document.getElementById(commands[command].card).classList.add('active');
-                    } else if (commands[command].action) {
-                        commands[command].action();
-                    }
-                } else {
-                    addTerminalOutput(`Comando não reconhecido: "${command}". Digite "ajuda" para ver os comandos disponíveis.`);
-                }
-            }
-        });
-
-        // Função para adicionar texto ao terminal
-        function addTerminalOutput(text) {
-            const terminalOutput = document.getElementById('terminal-output');
-            const newElement = document.createElement('div');
-            newElement.innerHTML = text;
-            terminalOutput.appendChild(newElement);
-            terminalOutput.scrollTop = terminalOutput.scrollHeight;
         }
+    };
 
-        // Focar no input quando a página carregar
-        window.onload = function() {
-            commandInput.focus();
-        };
-    </script>
+    // Configurar o input de comando
+    const commandInput = document.getElementById('command-input');
+    commandInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const command = this.value.toLowerCase().trim();
+            this.value = '';
+            
+            addTerminalOutput(`<div><span style="color: #69F0AE;">></span> ${command}</div>`);
+            
+            if (commands[command]) {
+                if (commands[command].card) {
+                    // Esconder todos os cards primeiro
+                    document.querySelectorAll('.site-card').forEach(card => {
+                        card.classList.remove('active');
+                    });
+                    
+                    // Mostrar mensagem no terminal
+                    addTerminalOutput(commands[command].message);
+                    
+                    // Mostrar o card correspondente
+                    document.getElementById(commands[command].card).classList.add('active');
+                } else if (commands[command].action) {
+                    commands[command].action();
+                }
+            } else {
+                addTerminalOutput(`Comando não reconhecido: "${command}". Digite "ajuda" para ver os comandos disponíveis.`);
+            }
+        }
+    });
+
+    // Função para adicionar texto ao terminal
+    function addTerminalOutput(text) {
+        const terminalOutput = document.getElementById('terminal-output');
+        const newElement = document.createElement('div');
+        newElement.innerHTML = text;
+        terminalOutput.appendChild(newElement);
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    }
+
+    // Focar no input quando a página carregar
+    window.onload = function() {
+        commandInput.focus();
+        // Mostra mensagem de boas-vindas após um breve delay
+        setTimeout(() => {
+            addTerminalOutput('<div>Dica: Digite "festajunina" para celebrar o milho!</div>');
+        }, 2000);
+    };
+</script>
 </body>
 </html>

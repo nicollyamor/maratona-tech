@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do Campo à Mesa: A Jornada do Milho!</title>
-      <link rel="icon" href="milho.png">
+    <title>Do Campo à Mesa: A Jornada do Milho</title>
+    <link rel="icon" href="milho.png">
     <style>
         * {
             box-sizing: border-box;
@@ -12,7 +12,7 @@
         }
         
         body {
-            background-color: #fffbc7;
+            background-color: #fff9e6;
             margin: 0;
             padding: 0;
             color: #333;
@@ -26,7 +26,7 @@
         }
         
         header {
-            background-color: #000000;
+            background-color: #f57f17;
             color: white;
             padding: 30px 0;
             text-align: center;
@@ -39,7 +39,7 @@
             font-size: 2.5rem;
         }
         
-        .strawberry-icon {
+        .corn-icon {
             font-size: 3rem;
             margin-bottom: 15px;
             display: block;
@@ -54,7 +54,7 @@
         }
         
         .intro h2 {
-            color: #000000;
+            color: #e65100;
             margin-top: 0;
         }
         
@@ -78,7 +78,7 @@
         
         .terminal-title {
             font-weight: bold;
-            color: #FF7043;
+            color: #FFD54F;
         }
         
         .terminal-controls span {
@@ -147,13 +147,13 @@
         }
         
         .site-card h3 {
-            color: #f8f298;
+            color: #e65100;
             margin-top: 0;
         }
         
         .site-card a {
             display: inline-block;
-            background-color: #f8f298;
+            background-color: #f57f17;
             color: white;
             padding: 10px 20px;
             border-radius: 5px;
@@ -163,7 +163,7 @@
         }
         
         .site-card a:hover {
-            background-color: #c2185b;
+            background-color: #e65100;
             transform: translateY(-2px);
         }
         
@@ -183,20 +183,27 @@
                 padding: 15px;
             }
         }
+
+        /* Animação das espigas */
+        @keyframes fall {
+            to {
+                transform: translateY(calc(100vh + 50px)) rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <span class="strawberry-icon">🌽</span>
-            <h1>Do Campo à Mesa: A Jornada do Morango </h1>
-            <p>Tudo sobre oO ouro amarelo da agricultura brasileira!!</p>
+            <span class="corn-icon">🌽</span>
+            <h1>Do Campo à Mesa: A Jornada do Milho</h1>
+            <p>O cereal dourado que alimenta o mundo!</p>
         </div>
     </header>
     
     <div class="container">
         <div class="intro">
-                 <h2>Conheça o Milho</h2>
+            <h2>Conheça o Milho</h2>
             <p>O milho (Zea mays) é um dos cereais mais importantes do mundo, base da alimentação em muitas culturas. Originário do México, foi domesticado há cerca de 10.000 anos e hoje é cultivado globalmente.</p>
             
             <p>Rico em carboidratos, fibras e vitaminas do complexo B, o milho é extremamente versátil, sendo usado desde alimentação humana e animal até produção de biocombustíveis. No Brasil, é um dos principais produtos da agricultura, com destaque para os estados do Mato Grosso, Paraná e Goiás.</p>
@@ -273,6 +280,18 @@
             </ul>
             <a href="#" target="_blank">Mais sobre nutrição</a>
         </div>
+        
+        <div class="site-card" id="variedades-card">
+            <h3>Variedades de Milho</h3>
+            <p>Conheça os principais tipos de milho:</p>
+            <p>🌽 <strong>Milho-verde</strong>: Para consumo in natura<br>
+               🌽 <strong>Milho-pipoca</strong>: Grãos pequenos e duros<br>
+               🌽 <strong>Milho-doce</strong>: Alto teor de açúcar<br>
+               🌽 <strong>Milho-branco</strong>: Usado para canjica<br>
+               🌽 <strong>Milho-roxo</strong>: Rico em antocianinas<br>
+               🌽 <strong>Milho-dentado</strong>: Para ração animal</p>
+            <a href="#" target="_blank">Conhecer todas as variedades</a>
+        </div>
     </div>
     
     <footer>
@@ -280,91 +299,51 @@
     </footer>
 
     <script>
-       <script>
-    // Comandos disponíveis sobre milho
-    const commands = {
-        'cultivo': {
-            card: 'cultivo-card',
-            message: 'Abrindo informações sobre cultivo de milho...'
-        },
-        'receitas': {
-            card: 'receitas-card',
-            message: 'Carregando receitas deliciosas com milho...'
-        },
-        'beneficios': {
-            card: 'beneficios-card',
-            message: 'Mostrando benefícios do milho para saúde...'
-        },
-        'variedades': {
-            card: 'variedades-card',
-            message: 'Exibindo diferentes variedades de milho...'
-        },
-        'historia': {
-            action: function() {
-                addTerminalOutput('<div>=== HISTÓRIA DO MILHO ===</div><br>');
-                addTerminalOutput('<div>O milho (Zea mays) foi domesticado há cerca de 10.000 anos no México</div>');
-                addTerminalOutput('<div>Era base da alimentação de maias, astecas e incas</div>');
-                addTerminalOutput('<div>Chegou à Europa no século XVI após as grandes navegações</div>');
-            }
-        },
-        'nutrientes': {
-            action: function() {
-                addTerminalOutput('<div>=== INFORMAÇÃO NUTRICIONAL ===</div><br>');
-                addTerminalOutput('<div>Por 100g de milho cozido:</div>');
-                addTerminalOutput('<div>- Calorias: 96kcal</div>');
-                addTerminalOutput('<div>- Carboidratos: 21g</div>');
-                addTerminalOutput('<div>- Proteínas: 3,4g</div>');
-                addTerminalOutput('<div>- Fibras: 2,4g</div>');
-                addTerminalOutput('<div>- Vitamina B1: 13% VD</div>');
-            }
-        },
-        'curiosidades': {
-            action: function() {
-                addTerminalOutput('<div>=== CURIOSIDADES ===</div><br>');
-                addTerminalOutput('<div>1. O milho é usado em mais de 3.000 produtos industrializados</div>');
-                addTerminalOutput('<div>2. Brasil é o 3° maior produtor mundial</div>');
-                addTerminalOutput('<div>3. Cada espiga tem número par de fileiras de grãos</div>');
-                addTerminalOutput('<div>4. Existem milhos de várias cores: amarelo, branco, roxo e até azul</div>');
-                addTerminalOutput('<div>5. 1 hectare de milho produz oxigênio para 50 pessoas por ano</div>');
-            }
-        },
-        'limpar': {
-            action: function() {
-                document.getElementById('terminal-output').innerHTML = '';
-                addTerminalOutput('Terminal limpo. Digite um comando para continuar.');
-            }
-        },
-        'ajuda': {
-            action: function() {
-                addTerminalOutput('<div>=== COMANDOS DISPONÍVEIS ===</div><br>');
-                addTerminalOutput('<div>- <strong>cultivo</strong>: Técnicas de cultivo</div>');
-                addTerminalOutput('<div>- <strong>receitas</strong>: Receitas com milho</div>');
-                addTerminalOutput('<div>- <strong>beneficios</strong>: Benefícios para saúde</div>');
-                addTerminalOutput('<div>- <strong>variedades</strong>: Tipos de milho</div>');
-                addTerminalOutput('<div>- <strong>historia</strong>: Origem do milho</div>');
-                addTerminalOutput('<div>- <strong>nutrientes</strong>: Informação nutricional</div>');
-                addTerminalOutput('<div>- <strong>curiosidades</strong>: Fatos interessantes</div>');
-                addTerminalOutput('<div>- <strong>limpar</strong>: Limpa o terminal</div>');
-                addTerminalOutput('<div>- <strong>ajuda</strong>: Mostra esta mensagem</div><br>');
-            }
-        },
-        'festajunina': {
-            action: function() {
-                addTerminalOutput('<div>🌽🎵 FESTA JUNINA DO MILHO 🎵🌽</div>');
-                addTerminalOutput('<div style="color: #FFD700">ARRAIÁ DO MILHO VIRTUAL!</div>');
-                addTerminalOutput('<div>Digite "surpresa" para uma experiência especial!</div>');
-            }
-        },
-        'surpresa': {
-            action: function() {
-                document.body.style.backgroundColor = '#FFF3E0';
-                document.body.style.transition = 'background 1s';
-                addTerminalOutput('<div style="font-weight:bold;color:#FF8F00">🌽 PAMONHA, CANJICA E CURAÚ! 🌽</div>');
-                addTerminalOutput('<div>Parabéns! Você ativou a festa do milho!</div>');
-                
-                // Cria espigas de milho caindo
-                for(let i = 0; i < 10; i++) {
-                    setTimeout(() => {
+        // Comandos disponíveis sobre milho
+        const commands = {
+            'cultivo': {
+                card: 'cultivo-card',
+                message: 'Carregando informações sobre cultivo de milho... 🌱'
+            },
+            'receitas': {
+                card: 'receitas-card',
+                message: 'Preparando deliciosas receitas com milho... 🍴'
+            },
+            'beneficios': {
+                card: 'beneficios-card',
+                message: 'Mostrando benefícios nutricionais do milho... 💪'
+            },
+            'variedades': {
+                card: 'variedades-card',
+                message: 'Exibindo variedades de milho... 🌈'
+            },
+            'historia': {
+                action: function() {
+                    addTerminalOutput('<div>=== HISTÓRIA DO MILHO ===</div><br>');
+                    addTerminalOutput('<div>🌍 Origem: México (há ~10.000 anos)</div>');
+                    addTerminalOutput('<div>🌎 Expansão: Chegou à Europa no século XVI</div>');
+                    addTerminalOutput('<div>🇧🇷 No Brasil: Introduzido pelos portugueses</div>');
+                    addTerminalOutput('<div>📈 Hoje: 3ª maior cultura do mundo</div>');
+                }
+            },
+            'festajunina': {
+                action: function() {
+                    addTerminalOutput('<div>=== FESTA JUNINA ===</div><br>');
+                    addTerminalOutput('<div>🎵 O milho é o rei das festas juninas!</div>');
+                    addTerminalOutput('<div>🍿 Pratos típicos: Pamonha, curau, pipoca</div>');
+                    addTerminalOutput('<div>🎉 Tradição: Celebração da colheita</div>');
+                    addTerminalOutput('<div>💃 Digite "arraia" para uma surpresa!</div>');
+                }
+            },
+            'arraia': {
+                action: function() {
+                    // Animação de festa junina
+                    document.body.style.background = "linear-gradient(135deg, #FFECB3, #FFCC80)";
+                    addTerminalOutput('<div style="color:#E65100;font-weight:bold">🚜 ARRAIÁ DO MILHO! 🎵</div>');
+                    addTerminalOutput('<div>Pamonha, pipoca, canjica... hmmm!</div>');
+                    
+                    // Criar espigas dançantes
+                    for(let i=0; i<15; i++) {
                         const corn = document.createElement('div');
                         corn.innerHTML = '🌽';
                         corn.style.position = 'fixed';
@@ -374,75 +353,85 @@
                         corn.style.animation = `fall ${3 + Math.random() * 4}s linear forwards`;
                         document.body.appendChild(corn);
                         
-                        // Adiciona animação de queda
-                        const keyframes = `
-                            @keyframes fall {
-                                to {
-                                    transform: translateY(${window.innerHeight + 50}px) rotate(360deg);
-                                }
-                            }
-                        `;
-                        const style = document.createElement('style');
-                        style.innerHTML = keyframes;
-                        document.head.appendChild(style);
-                        
                         // Remove após animação
                         setTimeout(() => {
                             corn.remove();
                         }, 7000);
-                    }, i * 300);
+                    }
+                    
+                    // Tocar música (simulado)
+                    addTerminalOutput('<div>🎶 Tocando: "Pula a fogueira, iaiá..."</div>');
+                }
+            },
+            'limpar': {
+                action: function() {
+                    document.getElementById('terminal-output').innerHTML = '';
+                    addTerminalOutput('Terminal limpo. Digite "ajuda" para ver os comandos.');
+                }
+            },
+            'ajuda': {
+                action: function() {
+                    addTerminalOutput('<div>=== AJUDA ===</div><br>');
+                    addTerminalOutput('<div>- cultivo: Técnicas agrícolas</div>');
+                    addTerminalOutput('<div>- receitas: Culinária com milho</div>');
+                    addTerminalOutput('<div>- beneficios: Vantagens nutricionais</div>');
+                    addTerminalOutput('<div>- variedades: Tipos de milho</div>');
+                    addTerminalOutput('<div>- historia: Origem do milho</div>');
+                    addTerminalOutput('<div>- festajunina: Tradições juninas</div>');
+                    addTerminalOutput('<div>- limpar: Limpa o terminal</div>');
+                    addTerminalOutput('<div>- ajuda: Mostra esta mensagem</div><br>');
+                    addTerminalOutput('<div>Dica: Experimente o comando "arraia"! 🌽🎶</div>');
                 }
             }
-        }
-    };
+        };
 
-    // Configurar o input de comando
-    const commandInput = document.getElementById('command-input');
-    commandInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            const command = this.value.toLowerCase().trim();
-            this.value = '';
-            
-            addTerminalOutput(`<div><span style="color: #69F0AE;">></span> ${command}</div>`);
-            
-            if (commands[command]) {
-                if (commands[command].card) {
-                    // Esconder todos os cards primeiro
-                    document.querySelectorAll('.site-card').forEach(card => {
-                        card.classList.remove('active');
-                    });
-                    
-                    // Mostrar mensagem no terminal
-                    addTerminalOutput(commands[command].message);
-                    
-                    // Mostrar o card correspondente
-                    document.getElementById(commands[command].card).classList.add('active');
-                } else if (commands[command].action) {
-                    commands[command].action();
+        // Configurar o input de comando
+        const commandInput = document.getElementById('command-input');
+        commandInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const command = this.value.toLowerCase().trim();
+                this.value = '';
+                
+                addTerminalOutput(`<div><span style="color: #FFD54F;">></span> ${command}</div>`);
+                
+                if (commands[command]) {
+                    if (commands[command].card) {
+                        // Esconder todos os cards primeiro
+                        document.querySelectorAll('.site-card').forEach(card => {
+                            card.classList.remove('active');
+                        });
+                        
+                        // Mostrar mensagem no terminal
+                        addTerminalOutput(commands[command].message);
+                        
+                        // Mostrar o card correspondente
+                        document.getElementById(commands[command].card).classList.add('active');
+                    } else if (commands[command].action) {
+                        commands[command].action();
+                    }
+                } else {
+                    addTerminalOutput(`Comando não reconhecido: "${command}". Digite "ajuda" para ver os comandos.`);
                 }
-            } else {
-                addTerminalOutput(`Comando não reconhecido: "${command}". Digite "ajuda" para ver os comandos disponíveis.`);
             }
+        });
+
+        // Função para adicionar texto ao terminal
+        function addTerminalOutput(text) {
+            const terminalOutput = document.getElementById('terminal-output');
+            const newElement = document.createElement('div');
+            newElement.innerHTML = text;
+            terminalOutput.appendChild(newElement);
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
         }
-    });
 
-    // Função para adicionar texto ao terminal
-    function addTerminalOutput(text) {
-        const terminalOutput = document.getElementById('terminal-output');
-        const newElement = document.createElement('div');
-        newElement.innerHTML = text;
-        terminalOutput.appendChild(newElement);
-        terminalOutput.scrollTop = terminalOutput.scrollHeight;
-    }
-
-    // Focar no input quando a página carregar
-    window.onload = function() {
-        commandInput.focus();
-        // Mostra mensagem de boas-vindas após um breve delay
-        setTimeout(() => {
-            addTerminalOutput('<div>Dica: Digite "festajunina" para celebrar o milho!</div>');
-        }, 2000);
-    };
-</script>
+        // Focar no input quando a página carregar
+        window.onload = function() {
+            commandInput.focus();
+            // Mostra dica após 3 segundos
+            setTimeout(() => {
+                addTerminalOutput('<div>Dica: Digite "festajunina" para celebrar o milho!</div>');
+            }, 3000);
+        };
+    </script>
 </body>
 </html>
